@@ -1,0 +1,29 @@
+{
+	"name": "cookiejar",
+	"version": "0.0.1",
+	"description": "A tiny helper library that makes working with cookies a bit easier.",
+	"main": "./dist/cookiejar.min.js",
+	"author": {
+		"name": "Warren Galyen <wgalyen@bellhelmets.com>"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/bell-lab-apps/cookiejar"
+	},
+  "scripts": {
+		"clean": "recursive-delete 'dist'",
+		"js": "rollup --config",
+		"build-dirty": "npm-run-all -p js",
+		"build": "npm-run-all -s clean build-dirty",
+		"watch-js": "chokidar './src/**/*.js' -c 'npm run js'",
+		"watch": "npm-run-all -p build watch-js"
+	},
+	"devDependencies": {
+		"chokidar-cli": "^2.1.0",
+		"npm-run-all": "^4.1.5",
+		"recursive-fs": "^2.1.0",
+		"rollup": "^2.6.1",
+		"rollup-plugin-terser": "^7.0.2"
+	}
+}
